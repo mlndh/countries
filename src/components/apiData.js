@@ -1,4 +1,4 @@
-const jokesData = [
+const apiData = [
   {
     name: "Afghanistan",
     topLevelDomain: [".af"],
@@ -14143,4 +14143,4 @@ const jokesData = [
   },
 ];
 
-export default jokesData;
+export default apiData;

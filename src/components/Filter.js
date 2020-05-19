@@ -6,12 +6,11 @@ import Europe from "./Europe";
 import Oceania from "./Oceania";
 import { Route, NavLink, BrowserRouter } from "react-router-dom";
 
-const Arrowicon = require("../angle-down.svg");
+// const Arrowicon = require("../angle-down.svg");
 
-class Card extends Component {
+class Filter extends Component {
   constructor() {
     super();
-
     this.state = {
       showMenu: false,
     };
@@ -22,7 +21,6 @@ class Card extends Component {
 
   showMenu(event) {
     event.preventDefault();
-
     this.setState({ showMenu: true }, () => {
       document.addEventListener("click", this.closeMenu);
     });
@@ -38,14 +36,15 @@ class Card extends Component {
 
   render() {
     return (
-      <div className="menu">
+      <div className="filter">
         {" "}
-        <button onClick={this.showMenu}>
-          Filter by region <img className="icon" src={Arrowicon} />{" "}
+        <button className="filter-button" onClick={this.showMenu}>
+          Filter by region 
+          {/* <img className="icons" src={Arrowicon} alt="arrow" /> */}
         </button>
         {this.state.showMenu ? (
           <div
-            className="menu"
+            className="filter"
             ref={(element) => {
               this.dropdownMenu = element;
             }}
@@ -80,7 +79,7 @@ class Card extends Component {
                 <Route path="/europe" component={Europe} />
                 <Route path="/oceania" component={Oceania} />
               </div>
-              <Card />
+            
             </BrowserRouter>
           </div>
         ) : null}
@@ -88,4 +87,4 @@ class Card extends Component {
     );
   }
 }
-export default Card;
+export default Filter;

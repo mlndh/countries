@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import jokesData from "./jokesData";
-const Searchicon = require("../search.svg");
+import apiData from "./apiData";
+// const Searchicon = require("../search.svg");
 
 class Search extends Component {
   constructor() {
     super();
-
     this.state = {
       search: "asd",
     };
@@ -16,20 +15,7 @@ class Search extends Component {
   };
 
   render() {
-    // const styleInfo = {
-    //   paddingRight: "10px",
-    // };
-    // const elementStyle = {
-    //   border: "none",
-    //   borderRadius: "10px",
-    //   position: "relative",
-    //   left: "10vh",
-    //   height: "3vh",
-    //   width: "20vh",
-    //   marginTop: "5vh",
-    //   marginBottom: "10vh",
-    // };
-    const items = jokesData
+    const items = apiData
       .filter((data) => {
         if (this.state.search == null) return data;
         else if (
@@ -41,6 +27,7 @@ class Search extends Component {
       })
       .map((data) => {
         return (
+          
           <div>
             <div className="flag">
               <img src={data.flag} className="flagImg" alt="flags" />
@@ -54,15 +41,15 @@ class Search extends Component {
       });
     return (
       <div className="input">
-        <img className="icons" src={Searchicon} />{" "}
+   
         <input
-          className="input"
+          className="input-text"
           type="text"
           placeholder="Search for a country..."
           // style={elementStyle}
           onChange={(e) => this.searchSpace(e)}
         />
-        <img className="icons" src={Searchicon} />
+          {/* <img className="icons" src={Searchicon} /> */}
         {items}
       </div>
     );

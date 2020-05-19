@@ -2,34 +2,26 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Search from "./components/Search";
-import Flags from "./components/Flags";
-import jokesData from "./components/jokesData";
-import Card from "./components/Card";
-
+import apiData from "./components/apiData";
+import Filter from "./components/Filter";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todos: jokesData,
+      todos: apiData,
     };
   }
   render() {
-    const countryComponent = this.state.todos.map((item) => (
-      <Flags key={item.name} item={item} />
-    ));
     return (
-      <div className="App">
- 
+      <React.Fragment> 
         <Header />
+        <div className="App">
         <Search />
-        <Card />
-
-        {/* {countryComponent} */}
-        {/* {filterCountry} */}
+        <Filter />
       </div>
+      </React.Fragment>
     );
   }
 }
-
 export default App;
